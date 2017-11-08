@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # PuppetMaster
+  config.vm.define "centos7-64-1", primary: true do |centos|
+    centos.vm.box = "centos_puppet/7"
+    centos.vm.hostname = "centos7-64-1"
+    centos.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 2
+    end
+    #centos.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
+  end
+  config.vm.provision "shell",
+    inline: "puppet apply /vagrant/manifests/default.pp"
+end

@@ -1,0 +1,57 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+provision
+[00;00m[00;34m  
+  * provision
+[00;00m[00;37m  
+  centos7-64-1 22:21:56$ mktemp -t apply_manifest.pp.XXXXXX
+[00;00m[00;33m    /tmp/apply_manifest.pp.pdEacn
+[00;00m[00;37m  
+  centos7-64-1 executed in 0.04 seconds
+[00;00m[00;34m  localhost $ scp /tmp/beaker20160911-5566-ezp5kb centos7-64-1:/tmp/apply_manifest.pp.pdEacn {:ignore => }
+[00;00m[00;37m  
+  centos7-64-1 22:21:56$ puppet apply --verbose /tmp/apply_manifest.pp.pdEacn
+[00;00m[00;33m    Notice: Compiled catalog for centos7-64-1.hsd1.wa.comcast.net in environment production in 1.47 seconds
+[00;00m[00;33m    Info: Applying configuration version '1473657718'
+[00;00m[00;33m    Info: Unknown failure using insync_values? on type: Package[httpd] / property: ensure to compare values [true] and 2.4.6-40.el7.centos.4
+[00;00m[00;33m    Error: undefined method `index' for true:TrueClass
+    Error: /Stage[main]/Main/Package[httpd]/ensure: change from 2.4.6-40.el7.centos.4 to true failed: undefined method `index' for true:TrueClass
+[00;00m[00;33m    Notice: Applied catalog in 0.22 seconds
+[00;00m[00;37m  
+  centos7-64-1 executed in 4.39 seconds
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m  
+  * make sure process is running
+[00;00m[00;37m  
+  centos7-64-1 22:22:00$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m  
+  centos7-64-1 executed in 1.13 seconds
+[00;00m[00;37m  
+  centos7-64-1 22:22:01$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m  
+  centos7-64-1 executed in 1.12 seconds
+[00;00m[00;37m  
+  centos7-64-1 22:22:03$ bash -c '[[ $(ps auxww | grep httpd |wc -l) -gt 1 ]]'
+[00;00m[00;37m  
+  centos7-64-1 executed in 0.05 seconds
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest.rb passed in 6.84 seconds
+[00;00m[00;32mBegin test2.rb
+[00;00m[00;34m
+test for port 80
+[00;00m[00;37m  
+  centos7-64-1 22:22:03$ ip a|awk '/global/{print$2}' | cut -d/ -f1 | head -1
+[00;00m[00;33m    10.0.2.15
+[00;00m[00;37m  
+  centos7-64-1 executed in 0.06 seconds
+[00;00m[00;37m  
+  centos7-64-1 22:22:03$ puppet agent --configprint node_name_value
+[00;00m[00;33m    centos7-64-1.hsd1.wa.comcast.net
+[00;00m[00;37m  
+  centos7-64-1 executed in 1.50 seconds
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest2.rb passed in 1.57 seconds
+[00;00m

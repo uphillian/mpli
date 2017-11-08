@@ -1,0 +1,59 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m
+* provision
+[00;00m[00;37m
+centos7-64-1 08:51:01$ mktemp -t apply_manifest.pp.XXXXXX
+[00;00m[00;33m  /tmp/apply_manifest.pp.edeZXX
+[00;00m[00;37m
+centos7-64-1 executed in 0.05 seconds
+[00;00m[00;34mlocalhost $ scp /tmp/beaker20160906-21952-ro6z2s centos7-64-1:/tmp/apply_manifest.pp.edeZXX {:ignore => }
+[00;00m[00;37m
+centos7-64-1 08:51:01$ puppet apply --verbose /tmp/apply_manifest.pp.edeZXX
+[00;00m[00;33m  Notice: Compiled catalog for centos7-64-1.hsd1.wa.comcast.net in environment production in 1.27 seconds
+[00;00m[00;33m  Info: Applying configuration version '1473177066'
+[00;00m[00;33m  Notice: /Stage[main]/Main/Package[httpd]/ensure: created
+[00;00m[00;33m  Notice: /Stage[main]/Main/Service[httpd]/ensure: ensure changed 'stopped' to 'running'
+  Info: /Stage[main]/Main/Service[httpd]: Unscheduling refresh on Service[httpd]
+[00;00m[00;33m  Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
+[00;00m[00;33m  Notice: Applied catalog in 9.09 seconds
+[00;00m[00;37m
+centos7-64-1 executed in 14.87 seconds
+[00;00m[00;34m
+* make sure process is running
+[00;00m[00;37m
+centos7-64-1 08:51:16$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m
+centos7-64-1 executed in 1.11 seconds
+[00;00m[00;37m
+centos7-64-1 08:51:17$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m
+centos7-64-1 executed in 1.10 seconds
+[00;00m[00;37m
+centos7-64-1 08:51:18$ bash -c '[[ $(ps auxww | grep httpd |wc -l) -gt 1 ]]'
+[00;00m[00;37m
+centos7-64-1 executed in 0.06 seconds
+[00;00m[00;31mNoMethodError: undefined method `port_open' for #<Beaker::TestCase:0x0055846af59580>
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:19
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:13
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:13
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m/usr/share/ruby/benchmark.rb:308
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:130
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:325
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:371
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:174
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:100
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6
+[00;00m[00;31m/home/thomas/bin/beaker:23
+[00;00m[00;31m/home/thomas/bin/beaker:23
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[01;31mWarning: test.rb errored in 17.29 seconds
+[00;00m[00;34m  Test Case test.rb reported: #<NoMethodError: undefined method `port_open' for #<Beaker::TestCase:0x0055846af59580>>
+    Test line: test.rb:19:in `block (2 levels) in run_test'
+[00;00m

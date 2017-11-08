@@ -1,0 +1,6 @@
+---
+hostname: 127.0.0.1
+port: '2222'
+username: vagrant
+ssh_key: "/home/thomas/narrabilis/mpli/code/6/testkitchen/.kitchen/kitchen-vagrant/kitchen-testkitchen-default-ubuntu-1404/.vagrant/machines/default/virtualbox/private_key"
+last_action: verify

@@ -1,0 +1,6 @@
+[00;32mBegin provision.rb
+[00;00m[00;34mlocalhost $ scp /tmp/beaker20160915-31573-1gxir14 centos7-64-1:/tmp/apply_manifest.pp.Mg1wvs {:ignore => }
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mprovision.rb passed in 11.72 seconds
+[00;00m

@@ -1,0 +1,9 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m  
+  * make sure process is running
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest.rb passed in 2.29 seconds
+[00;00m

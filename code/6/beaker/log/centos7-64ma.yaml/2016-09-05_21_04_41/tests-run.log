@@ -1,0 +1,43 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m
+* make sure process is running
+[00;00m[00;37m
+centos7-64-1 21:06:29$ bash -c '[[ -x /etc/init.d/httpd ]] && /etc/init.d/httpd restart '
+[00;00m[00;37m
+centos7-64-1 executed in 0.05 seconds
+[00;00m[00;37mExited: 1
+[00;00m[00;31mBeaker::Host::CommandFailure: Host 'centos7-64-1' exited with 1 running:
+ bash -c '[[ -x /etc/init.d/httpd ]] && /etc/init.d/httpd restart '
+Last 10 lines of output were:
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:351
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/helpers/host_helpers.rb:83
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/shared/host_manager.rb:127
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/patterns.rb:37
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/helpers/host_helpers.rb:63
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:11
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:8
+[00;00m[00;31m/home/thomas/narrabilis/mpli/code/6/beaker/test.rb:8
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m/usr/share/ruby/benchmark.rb:308
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:130
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:325
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:371
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:174
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:100
+[00;00m[00;31m/home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6
+[00;00m[00;31m/home/thomas/bin/beaker:23
+[00;00m[00;31m/home/thomas/bin/beaker:23
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[01;31mWarning: test.rb errored in 0.05 seconds
+[00;00m[00;34m  Test Case test.rb reported: #<Beaker::Host::CommandFailure: Host 'centos7-64-1' exited with 1 running:
+ bash -c '[[ -x /etc/init.d/httpd ]] && /etc/init.d/httpd restart '
+Last 10 lines of output were:
+>
+    Test line: test.rb:11:in `block (2 levels) in run_test'
+[00;00m

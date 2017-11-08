@@ -9,6 +9,8 @@
   postgresql            192.168.50.101/24
 
 ## puppetlabs-puppetdb 
+ * puppet module install puppetlabs-puppetdb
+   https://forge.puppet.com/puppetlabs/puppetdb
  * Quick easy way to configure puppetdb and postgresql
    - Obscures the details
 
@@ -16,16 +18,18 @@
  * Find latest PostgreSQL you can - get repo rpm for that.
 
  * Install postgresql repo rpm
-   http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-2.noarch.rpm
+   https://yum.postgresql.org
+   https://download.postgresql.org/pub/repos/yum/9.5/redhat/rhel-7-x86_64/pgdg-centos95-9.5-2.noarch.rpm
 
  * Install postgresql
-   yum install postgresql94-server
+   yum install postgresql95-server
 
  * Initialize the database
-   postgresql-setup initdb
+   export PATH=$PATH:/usr/pgsql-9.5/bin
+   postgresql95-setup initdb
 
  * Start the database
-   systemctl start postgresql-9.4
+   systemctl start postgresql-9.5
 
 ## Create puppetdb database
  * Create the User
@@ -33,19 +37,19 @@
    createuser -DRSP puppetdb
 
  * Create the Database
-   createdb -E UTF8 -O puppetdb_puppetdb
+   createdb -E UTF8 -O puppetdb puppetdb
 
  * Allow access to postgres locally
-   /var/lib/pgsql/9.4/data/pg_hba.conf
+   /var/lib/pgsql/9.5/data/pg_hba.conf
    local puppetdb puppetdb    md5
    host  puppetdb puppetdb    127.0.0.1/32  md5
    host  puppetdb puppetdb    ::1/128       md5   
 
  * Restart postgresql
-   systemctl restart postgresql-9.4
+   systemctl restart postgresql-9.5.service
 
  * Verify puppetdb user can access postgresql
-   psql -h localhost puppetdb_puppetdb
+   psql -h localhost puppetdb puppetdb
    \d
    \q
 
@@ -55,6 +59,10 @@
    localhost:5432/puppetdb
    username = puppetdb
    password = PacktPub
+
+## Enable SSL
+   Need certs from puppetca first, run agent on puppetdb node.
+   puppetdb ssl-setup
 
 ## Configure Puppetserver to use PuppetDB
  * Tell Puppetserver where to find puppetdb
@@ -84,3 +92,45 @@
     psql -h localhost puppetdb puppetdb
     \x
     SELECT * from catalogs; 
+
+## Create exported resource
+  * define a resource
+   @@host {'exported':
+   }
+  
+  * Export the resource (run puppet agent)
+
+  * Look in the resources table
+    \x
+    SELECT * from resources where exported = true;
+
+## Collect exported resource
+  * mpli client machine, collect on that one using a manifest crafted to do that.
+
+## PuppetDB GUIs
+  * Performance Dashboard
+  * Panopuppet
+  * PuppetExplorer
+  * PuppetBoard
+  
+## PuppetDB APIs
+  * Certificate
+  * curl
+    curl -X GET \
+      --tlsv1 --cacert certs/ca.pem \
+      --cert certs/thomas.uphill.pem \
+      --key private_keys/thomas.uphill.pem \
+      https://puppetdb.example.com:8081/pdb/query/v4/
+
+  * Endpoints https://docs.puppet.com/puppetdb/4.1/api/query/v4/entities.html
+    - environments
+    - resources
+    - nodes
+    - facts
+  * Query https://docs.puppet.com/puppetdb/latest/api/query/tutorial.html
+    - environments
+    - resources
+    - facts
+    - nodes
+
+

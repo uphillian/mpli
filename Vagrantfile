@@ -16,10 +16,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.vm.network :private_network, ip: "192.168.50.100"
     puppet.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh"
     puppet.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 1524
       v.cpus = 2
     end
-    puppet.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
+    puppet.vm.synced_folder ".", "/vagrant", disabled: true
   end
   # PuppetMaster
   config.vm.define "puppetmaster1", primary: true do |puppet|
@@ -67,7 +67,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     casit.vm.network :private_network, ip: "192.168.50.101"
     casit.vm.network :forwarded_port, guest: 22, host: 2226, id: "ssh"
     casit.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 512
+      v.cpus = 2
+    end
+    casit.vm.synced_folder ".", "/vagrant", disabled: true
+  end
+  # Foreman
+  config.vm.define "foreman" do |fm|
+    fm.vm.box = "centos/7"
+    fm.vm.hostname = "foreman.example.com"
+    fm.vm.network :private_network, ip: "192.168.50.20"
+    fm.vm.network :forwarded_port, guest: 22, host: 2520, id: "ssh"
+    fm.vm.provider "virtualbox" do |v|
+      v.memory = 1536
       v.cpus = 2
     end
   end

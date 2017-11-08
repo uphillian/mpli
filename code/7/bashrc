@@ -1,0 +1,31 @@
+# .bashrc
+
+# Puppet
+function is_ok() {
+  if [ $1 == 0 ]; then
+    if [[ "$TERM" == *"xterm"* ]] || [[ "$TERM" == *"vt100"* ]]; then
+      echo -e "\033[1mSyntax \033[32;1mOk!\033[0m"
+    else
+      echo "Syntax Ok!"
+    fi
+  else
+    return $1
+  fi
+}
+
+function verb() {
+  erb -P -x -T '-' $1 | ruby -c 
+  is_ok $?
+}
+
+function vyaml() {
+  ruby -ryaml -e "YAML.load_file '$1'" 
+  is_ok $?
+}
+
+function ppv() {
+  puppet parser validate $*
+  is_ok $?
+}
+
+alias pl='puppet-lint'

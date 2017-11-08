@@ -1,0 +1,40 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m
+* provision
+[00;00m[00;37m
+centos7-64-1 09:08:19$ mktemp -t apply_manifest.pp.XXXXXX
+[00;00m[00;33m  /tmp/apply_manifest.pp.1Swqi9
+[00;00m[00;37m
+centos7-64-1 executed in 0.05 seconds
+[00;00m[00;34mlocalhost $ scp /tmp/beaker20160906-7773-1jretw centos7-64-1:/tmp/apply_manifest.pp.1Swqi9 {:ignore => }
+[00;00m[00;37m
+centos7-64-1 09:08:19$ puppet apply --verbose /tmp/apply_manifest.pp.1Swqi9
+[00;00m[00;33m  Notice: Compiled catalog for centos7-64-1.hsd1.wa.comcast.net in environment production in 1.31 seconds
+[00;00m[00;33m  Info: Applying configuration version '1473178103'
+[00;00m[00;33m  Notice: /Stage[main]/Main/Package[httpd]/ensure: created
+[00;00m[00;33m  Notice: /Stage[main]/Main/Service[httpd]/ensure: ensure changed 'stopped' to 'running'
+  Info: /Stage[main]/Main/Service[httpd]: Unscheduling refresh on Service[httpd]
+[00;00m[00;33m  Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
+[00;00m[00;33m  Notice: Applied catalog in 7.14 seconds
+[00;00m[00;37m
+centos7-64-1 executed in 12.92 seconds
+[00;00m[00;34m
+* make sure process is running
+[00;00m[00;37m
+centos7-64-1 09:08:32$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m
+centos7-64-1 executed in 1.13 seconds
+[00;00m[00;37m
+centos7-64-1 09:08:33$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m
+centos7-64-1 executed in 1.11 seconds
+[00;00m[00;37m
+centos7-64-1 09:08:34$ bash -c '[[ $(ps auxww | grep httpd |wc -l) -gt 1 ]]'
+[00;00m[00;37m
+centos7-64-1 executed in 0.08 seconds
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest.rb passed in 15.37 seconds
+[00;00m

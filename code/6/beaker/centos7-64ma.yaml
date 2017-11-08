@@ -1,0 +1,17 @@
+---
+HOSTS:
+  centos7-64-1:
+    box: 'centos_puppet/7'
+    hypervisor: vagrant
+    platform: el-7-x86_64
+    template: centos-7-x86_64
+    roles:
+    - agent
+    - master
+    provision: true
+    mount_folders:
+      vagrant:
+        from: ./
+        to: /vagrant
+CONFIG:
+  type: foss

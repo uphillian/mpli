@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="junit.xsl"?>
+<testsuites>
+  <meta_test_info page_active="no-links" link_url=""/>
+  <testsuite name="tests" tests="2" errors="1" failures="0" skipped="0" pending="0" total="2" time="18.602838">
+    <properties>
+      <property name="project" value="Beaker"/>
+      <property name="department" value="unknown"/>
+      <property name="created_by" value="thomas"/>
+      <property name="host_tags" value="{}"/>
+      <property name="openstack_api_key" value=""/>
+      <property name="openstack_username" value=""/>
+      <property name="openstack_auth_url" value="/tokens"/>
+      <property name="openstack_tenant" value=""/>
+      <property name="openstack_keyname" value=""/>
+      <property name="openstack_network" value=""/>
+      <property name="openstack_region" value=""/>
+      <property name="jenkins_build_url" value=""/>
+      <property name="validate" value="true"/>
+      <property name="configure" value="true"/>
+      <property name="log_level" value="debug"/>
+      <property name="trace_limit" value="10"/>
+      <property name="master-start-curl-retries" value="120"/>
+      <property name="masterless" value="false"/>
+      <property name="options_file" value=""/>
+      <property name="type" value="foss"/>
+      <property name="provision" value="true"/>
+      <property name="preserve_hosts" value="always"/>
+      <property name="root_keys" value="false"/>
+      <property name="quiet" value="false"/>
+      <property name="project_root" value="/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker"/>
+      <property name="xml_dir" value="junit"/>
+      <property name="xml_file" value="beaker_junit.xml"/>
+      <property name="xml_time" value="beaker_times.xml"/>
+      <property name="xml_time_enabled" value="false"/>
+      <property name="xml_stylesheet" value="junit.xsl"/>
+      <property name="default_log_prefix" value="beaker_logs"/>
+      <property name="log_dir" value="log"/>
+      <property name="log_sut_event" value="sut.log"/>
+      <property name="color" value="true"/>
+      <property name="dry_run" value="false"/>
+      <property name="tag_includes" value="[]"/>
+      <property name="tag_excludes" value="[]"/>
+      <property name="timeout" value="900"/>
+      <property name="fail_mode" value="slow"/>
+      <property name="accept_all_exit_codes" value="false"/>
+      <property name="timesync" value="false"/>
+      <property name="disable_iptables" value="false"/>
+      <property name="set_env" value="true"/>
+      <property name="disable_updates" value="true"/>
+      <property name="repo_proxy" value="false"/>
+      <property name="package_proxy" value="false"/>
+      <property name="add_el_extras" value="false"/>
+      <property name="epel_url" value="http://dl.fedoraproject.org/pub/epel"/>
+      <property name="epel_arch" value="i386"/>
+      <property name="epel_7_pkg" value="epel-release-7-8.noarch.rpm"/>
+      <property name="epel_6_pkg" value="epel-release-6-8.noarch.rpm"/>
+      <property name="epel_5_pkg" value="epel-release-5-4.noarch.rpm"/>
+      <property name="consoleport" value="443"/>
+      <property name="pe_dir" value="/opt/enterprise/dists"/>
+      <property name="pe_version_file" value="LATEST"/>
+      <property name="pe_version_file_win" value="LATEST-win"/>
+      <property name="host_env" value="{}"/>
+      <property name="host_name_prefix" value=""/>
+      <property name="ssh_env_file" value="~/.ssh/environment"/>
+      <property name="profile_d_env_file" value="/etc/profile.d/beaker_env.sh"/>
+      <property name="dot_fog" value="/home/thomas/.fog"/>
+      <property name="ec2_yaml" value="config/image_templates/ec2.yaml"/>
+      <property name="help" value="false"/>
+      <property name="collect_perf_data" value="none"/>
+      <property name="puppetdb_port_ssl" value="8081"/>
+      <property name="puppetdb_port_nonssl" value="8080"/>
+      <property name="puppetserver_port" value="8140"/>
+      <property name="nodeclassifier_port" value="4433"/>
+      <property name="cache_files_locally" value="true"/>
+      <property name="aws_keyname_modifier" value="7160794255"/>
+      <property name="run_in_parallel" value="[]"/>
+      <property name="ssh" value="{:config=&gt;false, :paranoid=&gt;false, :auth_methods=&gt;[&quot;publickey&quot;], :port=&gt;22, :forward_agent=&gt;true, :keys=&gt;[&quot;/home/thomas/.ssh/id_rsa&quot;], :user_known_hosts_file=&gt;&quot;/home/thomas/.ssh/known_hosts&quot;, :keepalive=&gt;true}"/>
+      <property name="hosts_file" value="/home/thomas/narrabilis/mpli/code/6/beaker/centos7-64ma.yaml"/>
+      <property name="tests" value="[&quot;test.rb&quot;, &quot;test2.rb&quot;]"/>
+      <property name="command_line" value="/home/thomas/bin/beaker --host centos7-64ma.yaml --test test.rb,test2.rb --debug --preserve-hosts always"/>
+      <property name="HOSTS" value="{:&quot;centos7-64-1&quot;=&gt;{:box=&gt;&quot;centos_puppet/7&quot;, :hypervisor=&gt;&quot;vagrant&quot;, :platform=&gt;&quot;el-7-x86_64&quot;, :template=&gt;&quot;centos-7-x86_64&quot;, :roles=&gt;[&quot;agent&quot;, &quot;master&quot;, &quot;default&quot;], :provision=&gt;true, :mount_folders=&gt;{:vagrant=&gt;{:from=&gt;&quot;./&quot;, :to=&gt;&quot;/vagrant&quot;}}, :host_tags=&gt;{}}}"/>
+      <property name="home" value="/home/thomas"/>
+      <property name="helper" value="[]"/>
+      <property name="load_path" value="[]"/>
+      <property name="pre_suite" value="[]"/>
+      <property name="post_suite" value="[]"/>
+      <property name="install" value="[]"/>
+      <property name="pre_cleanup" value="[]"/>
+      <property name="modules" value="[]"/>
+      <property name="logger" value="#&lt;Beaker::Logger:0x0055dd38727d40&gt;"/>
+      <property name="timestamp" value="2016-09-11 22:09:32 -0700"/>
+      <property name="beaker_version" value="2.50.0"/>
+      <property name="log_prefix" value="centos7-64ma.yaml"/>
+      <property name="xml_dated_dir" value="junit/centos7-64ma.yaml/2016-09-11_22_09_32"/>
+      <property name="log_dated_dir" value="log/centos7-64ma.yaml/2016-09-11_22_09_32"/>
+      <property name="logger_sut" value="#&lt;Beaker::Logger:0x0055dd387693f8&gt;"/>
+    </properties>
+    <testcase classname="." name="test.rb" time="15.576527">
+      <system-out><![CDATA[
+provision
+  
+  * provision
+  
+  centos7-64-1 22:11:46$ mktemp -t apply_manifest.pp.XXXXXX
+    /tmp/apply_manifest.pp.Ge0jis
+  
+  centos7-64-1 executed in 0.05 seconds
+  localhost $ scp /tmp/beaker20160911-30871-hsu6k8 centos7-64-1:/tmp/apply_manifest.pp.Ge0jis {:ignore => }
+  
+  centos7-64-1 22:11:46$ puppet apply --verbose /tmp/apply_manifest.pp.Ge0jis
+    Notice: Compiled catalog for centos7-64-1.hsd1.wa.comcast.net in environment production in 1.54 seconds
+    Info: Applying configuration version '1473657111'
+    Notice: /Stage[main]/Main/Package[httpd]/ensure: created
+    Notice: /Stage[main]/Main/Service[httpd]/ensure: ensure changed 'stopped' to 'running'
+    Info: /Stage[main]/Main/Service[httpd]: Unscheduling refresh on Service[httpd]
+    Info: Creating state file /opt/puppetlabs/puppet/cache/state/state.yaml
+    Notice: Applied catalog in 6.01 seconds
+  
+  centos7-64-1 executed in 13.11 seconds
+
+test for httpd
+  
+  * make sure process is running
+  
+  centos7-64-1 22:11:59$ bash -c 'systemctl restart httpd'
+  
+  centos7-64-1 executed in 1.13 seconds
+  
+  centos7-64-1 22:12:00$ bash -c 'systemctl restart httpd'
+  
+  centos7-64-1 executed in 1.13 seconds
+  
+  centos7-64-1 22:12:01$ bash -c '[[ $(ps auxww | grep httpd |wc -l) -gt 1 ]]'
+  
+  centos7-64-1 executed in 0.07 seconds
+Begin teardown
+End teardown
+]]></system-out>
+    </testcase>
+    <testcase classname="." name="test2.rb" time="3.020365">
+      <failure type="error" message="No route to host - connect(2) for &quot;10.255.31.9&quot; port 80"><![CDATA[/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92:in `initialize'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92:in `new'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92:in `block in port_open?'\n/usr/share/ruby/timeout.rb:91:in `block in timeout'\n/usr/share/ruby/timeout.rb:33:in `block in catch'\n/usr/share/ruby/timeout.rb:33:in `catch'\n/usr/share/ruby/timeout.rb:33:in `catch'\n/usr/share/ruby/timeout.rb:106:in `timeout'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:91:in `port_open?'\ntest2.rb:7:in `block (3 levels) in run_test'\ntest2.rb:6:in `each'\ntest2.rb:6:in `block (2 levels) in run_test'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/structure.rb:58:in `test_name'\ntest2.rb:1:in `block in run_test'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133:in `eval'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133:in `block in run_test'\n/usr/share/ruby/benchmark.rb:308:in `realtime'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:130:in `run_test'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:325:in `block in run'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322:in `each'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322:in `run'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:371:in `run_and_raise_on_failure'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:174:in `run_suite'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:100:in `execute!'\n/home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6:in `<top (required)>'\n/home/thomas/bin/beaker:23:in `load'\n/home/thomas/bin/beaker:23:in `<main>']]></failure>
+      <system-out><![CDATA[
+test for port 80
+  Errno::EHOSTUNREACH: No route to host - connect(2) for "10.255.31.9" port 80
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+  /usr/share/ruby/timeout.rb:91
+  /usr/share/ruby/timeout.rb:33
+  /usr/share/ruby/timeout.rb:33
+  /usr/share/ruby/timeout.rb:33
+  /usr/share/ruby/timeout.rb:106
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:91
+  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:7
+  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/structure.rb:58
+  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:1
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+  /usr/share/ruby/benchmark.rb:308
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:130
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:325
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:371
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:174
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:100
+  /home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6
+  /home/thomas/bin/beaker:23
+  /home/thomas/bin/beaker:23
+  Begin teardown
+  End teardown
+]]></system-out>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,25 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m  
+  * make sure process is running
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest.rb passed in 2.28 seconds
+[00;00m[00;32mBegin test2.rb
+[00;00m[00;34m
+test for port 80
+[00;00m[00;31m  Minitest::Assertion: Expected: true
+    Actual: false
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:9
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:1
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6
+[00;00m[00;32m  Begin teardown
+[00;00m[00;32m  End teardown
+[00;00m[00;31m  test2.rb failed in 121.35 seconds
+[00;00m[00;34m    Test Case test2.rb reported: #<Minitest::Assertion: Expected: true
+    Actual: false>
+      Test line: test2.rb:9:in `block (3 levels) in run_test'
+[00;00m

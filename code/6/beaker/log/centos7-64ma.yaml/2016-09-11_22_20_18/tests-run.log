@@ -1,0 +1,77 @@
+[00;32mBegin test.rb
+[00;00m[00;34m
+provision
+[00;00m[00;34m  
+  * provision
+[00;00m[00;37m  
+  centos7-64-1 22:20:39$ mktemp -t apply_manifest.pp.XXXXXX
+[00;00m[00;33m    /tmp/apply_manifest.pp.w6B7Kw
+[00;00m[00;37m  
+  centos7-64-1 executed in 0.05 seconds
+[00;00m[00;34m  localhost $ scp /tmp/beaker20160911-5218-5hd1t3 centos7-64-1:/tmp/apply_manifest.pp.w6B7Kw {:ignore => }
+[00;00m[00;37m  
+  centos7-64-1 22:20:39$ puppet apply --verbose /tmp/apply_manifest.pp.w6B7Kw
+[00;00m[00;33m    Notice: Compiled catalog for centos7-64-1.hsd1.wa.comcast.net in environment production in 1.32 seconds
+[00;00m[00;33m    Info: Applying configuration version '1473657642'
+[00;00m[00;33m    Info: Unknown failure using insync_values? on type: Package[httpd] / property: ensure to compare values [true] and 2.4.6-40.el7.centos.4
+[00;00m[00;33m    Error: undefined method `index' for true:TrueClass
+    Error: /Stage[main]/Main/Package[httpd]/ensure: change from 2.4.6-40.el7.centos.4 to true failed: undefined method `index' for true:TrueClass
+[00;00m[00;33m    Notice: Applied catalog in 0.18 seconds
+[00;00m[00;37m  
+  centos7-64-1 executed in 4.02 seconds
+[00;00m[00;34m
+test for httpd
+[00;00m[00;34m  
+  * make sure process is running
+[00;00m[00;37m  
+  centos7-64-1 22:20:43$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m  
+  centos7-64-1 executed in 1.17 seconds
+[00;00m[00;37m  
+  centos7-64-1 22:20:45$ bash -c 'systemctl restart httpd'
+[00;00m[00;37m  
+  centos7-64-1 executed in 1.15 seconds
+[00;00m[00;37m  
+  centos7-64-1 22:20:46$ bash -c '[[ $(ps auxww | grep httpd |wc -l) -gt 1 ]]'
+[00;00m[00;37m  
+  centos7-64-1 executed in 0.06 seconds
+[00;00m[00;32mBegin teardown
+[00;00m[00;32mEnd teardown
+[00;00m[00;35mtest.rb passed in 6.54 seconds
+[00;00m[00;32mBegin test2.rb
+[00;00m[00;34m
+test for port 80
+[00;00m[00;31m  Errno::EHOSTUNREACH: No route to host - connect(2) for "10.255.31.9" port 80
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:92
+[00;00m[00;31m  /usr/share/ruby/timeout.rb:91
+[00;00m[00;31m  /usr/share/ruby/timeout.rb:33
+[00;00m[00;31m  /usr/share/ruby/timeout.rb:33
+[00;00m[00;31m  /usr/share/ruby/timeout.rb:33
+[00;00m[00;31m  /usr/share/ruby/timeout.rb:106
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/host.rb:91
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:7
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:6
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/dsl/structure.rb:58
+[00;00m[00;31m  /home/thomas/narrabilis/mpli/code/6/beaker/test2.rb:1
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:133
+[00;00m[00;31m  /usr/share/ruby/benchmark.rb:308
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_case.rb:130
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:325
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:322
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/test_suite.rb:371
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:174
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/lib/beaker/cli.rb:100
+[00;00m[00;31m  /home/thomas/.gem/ruby/gems/beaker-2.50.0/bin/beaker:6
+[00;00m[00;31m  /home/thomas/bin/beaker:23
+[00;00m[00;31m  /home/thomas/bin/beaker:23
+[00;00m[00;32m  Begin teardown
+[00;00m[00;32m  End teardown
+[00;00m[01;31m  Warning: test2.rb errored in 3.01 seconds
+[00;00m[00;34m    Test Case test2.rb reported: #<Errno::EHOSTUNREACH: No route to host - connect(2) for "10.255.31.9" port 80>
+      Test line: test2.rb:7:in `block (3 levels) in run_test'
+[00;00m

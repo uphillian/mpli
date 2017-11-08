@@ -1,0 +1,23 @@
+      Test Suite: tests @ 2016-09-11 22:31:10 -0700
+
+      - Host Configuration Summary -
+
+
+              - Test Case Summary for suite 'tests' -
+       Total Suite Time: 127.29 seconds
+      Average Test Time: 63.65 seconds
+              Attempted: 2
+                 Passed: 1
+                 Failed: 1
+                Errored: 0
+                Skipped: 0
+                Pending: 0
+                  Total: 2
+
+      - Specific Test Case Status -
+        
+Failed Tests Cases:
+Errored Tests Cases:
+Skipped Tests Cases:
+Pending Tests Cases:
+
